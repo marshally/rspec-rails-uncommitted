@@ -6,7 +6,7 @@ orm_setting = Rails.configuration.generators.options[:rails][:orm]
 spec_prereq = if(orm_setting == :active_record)
   Rails.configuration.active_record[:schema_format] == :sql ? "db:test:clone_structure" : "db:test:prepare"
 else
-  :noop	
+  :noop
 end
 
 def uncommitted

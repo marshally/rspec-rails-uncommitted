@@ -15,7 +15,11 @@ Gem::Specification.new do |s|
   s.rubyforge_project = "rspec-rails-uncommitted"
 
   s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+  
+  if RSpec::Rails::Uncommitted::Version::STRING =~ /[a-zA-Z]+/ # prerelease builds
+    s.add_runtime_dependency "rspec-rails", "= #{RSpec::Rails::Uncommitted::Version::STRING}"
+  else
+    s.add_runtime_dependency "rspec-rails", "~> #{RSpec::Rails::Uncommitted::Version::STRING.split('.')[0..1].concat(['0']).join('.')}"
+  end
 end

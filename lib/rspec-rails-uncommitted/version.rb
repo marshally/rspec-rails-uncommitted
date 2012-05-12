@@ -1,7 +1,9 @@
 module Rspec
   module Rails
     module Uncommitted
-      VERSION = "0.0.1"
+      module Version
+        STRING = '2.7.0'
+      end
     end
   end
 end
