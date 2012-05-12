@@ -4,7 +4,7 @@ require "rspec-rails-uncommitted/version"
 
 Gem::Specification.new do |s|
   s.name        = "rspec-rails-uncommitted"
-  s.version     = Rspec::Rails::Uncommitted::VERSION
+  s.version     = Rspec::Rails::Uncommitted::Version::STRING
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Marshall Yount"]
   s.email       = ["marshall@yountlabs.com"]
@@ -17,9 +17,9 @@ Gem::Specification.new do |s|
   s.files         = `git ls-files`.split("\n")
   s.require_paths = ["lib"]
   
-  if RSpec::Rails::Uncommitted::Version::STRING =~ /[a-zA-Z]+/ # prerelease builds
-    s.add_runtime_dependency "rspec-rails", "= #{RSpec::Rails::Uncommitted::Version::STRING}"
+  if Rspec::Rails::Uncommitted::Version::STRING =~ /[a-zA-Z]+/ # prerelease builds
+    s.add_runtime_dependency "rspec-rails", "= #{Rspec::Rails::Uncommitted::Version::STRING}"
   else
-    s.add_runtime_dependency "rspec-rails", "~> #{RSpec::Rails::Uncommitted::Version::STRING.split('.')[0..1].concat(['0']).join('.')}"
+    s.add_runtime_dependency "rspec-rails", "~> #{Rspec::Rails::Uncommitted::Version::STRING.split('.')[0..1].concat(['0']).join('.')}"
   end
 end
