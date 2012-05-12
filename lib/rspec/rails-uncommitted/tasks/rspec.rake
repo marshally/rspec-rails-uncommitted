@@ -25,8 +25,7 @@ namespace :spec do
   RSpec::Core::RakeTask.new(:uncommitted => spec_prereq) do |t|
     changed = uncommitted
 
-    puts changed.inspect
-    
+    # cribbed from rails/railties/lib/rails/test_unit/testing.rake
     models      = changed.select { |path| path =~ /app[\\\/]models[\\\/].*\.rb$/ }
     controllers = changed.select { |path| path =~ /app[\\\/]controllers[\\\/].*\.rb$/ }
 
@@ -37,7 +36,6 @@ namespace :spec do
 
     specs_to_run = (unit_tests + functional_tests).uniq.select { |file| File.exist?(file) }
     
-    puts specs_to_run.inspect
     t.pattern = specs_to_run
   end
 end
