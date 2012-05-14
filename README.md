@@ -20,6 +20,8 @@ end
 It needs to be in the `:development` group to expose generators and rake
 tasks without having to type `RAILS_ENV=test`.
 
+## Behavior
+
 ### `rake rspec:uncommitted`
 
 This task will execute specs associated with files you have changed and not yet committed.
