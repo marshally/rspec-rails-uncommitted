@@ -1,6 +1,6 @@
 # rspec-rails-uncommitted
 
-rake tasks for rails-3 which selectively run rspec tests based on your SCM status.
+rake tasks for rails-3 which selectively run specs based on your SCM status.
 
 ## Install
 ```
