@@ -36,7 +36,6 @@ def unmerged(branch="master")
   end
 end
 
-<<<<<<< HEAD
 def current_branch
   git_status[/On branch ([^\s]+)/, 1]
 end
@@ -46,9 +45,6 @@ def git_status
 end
 
 def specs_to_run(changed)
-=======
-def specs_to_run
->>>>>>> c47c1eedbfd3c35132c981d390573077dacde7d5
   # cribbed from rails/railties/lib/rails/test_unit/testing.rake
   models      = changed.select { |path| path =~ /app[\\\/]models[\\\/].*\.rb$/ }
   controllers = changed.select { |path| path =~ /app[\\\/]controllers[\\\/].*\.rb$/ }
