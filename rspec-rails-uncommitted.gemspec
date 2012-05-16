@@ -20,6 +20,6 @@ Gem::Specification.new do |s|
   if Rspec::Rails::Uncommitted::Version::STRING =~ /[a-zA-Z]+/ # prerelease builds
     s.add_runtime_dependency "rspec-rails", "= #{Rspec::Rails::Uncommitted::Version::STRING}"
   else
-    s.add_runtime_dependency "rspec-rails", "~> #{Rspec::Rails::Uncommitted::Version::STRING.split('.')[0..1].concat(['0']).join('.')}"
+    s.add_runtime_dependency "rspec-rails", "~> 2.0"
   end
 end
