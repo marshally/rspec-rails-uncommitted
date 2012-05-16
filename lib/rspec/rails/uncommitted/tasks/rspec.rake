@@ -67,13 +67,10 @@ namespace :spec do
   RSpec::Core::RakeTask.new(:unmerged => spec_prereq) do |t|
     t.pattern = specs_to_run unmerged
   end
-<<<<<<< HEAD
 
   desc "Run unpushed specs"
   RSpec::Core::RakeTask.new(:unpushed => spec_prereq) do |t|
     t.pattern = specs_to_run unpushed
   end
-=======
->>>>>>> c47c1eedbfd3c35132c981d390573077dacde7d5
 end
 
