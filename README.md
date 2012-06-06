@@ -22,15 +22,15 @@ tasks without having to type `RAILS_ENV=test`.
 
 ## Behavior
 
-### `rake rspec:uncommitted`
+### `rake spec:uncommitted`
 
 This task will execute specs associated with files you have changed and not yet committed.
 
-### `rake rspec:unpushed`
+### `rake spec:unpushed`
 
 This task will execute specs for files you have committed locally, but haven't pushed up to origin.
 
-### `rake rspec:unmerged`
+### `rake spec:unmerged`
 
 This task will execute specs for files you have not yet merged back into the master branch.
 
