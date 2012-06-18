@@ -48,13 +48,16 @@ def specs_to_run(changed)
   # cribbed from rails/railties/lib/rails/test_unit/testing.rake
   models      = changed.select { |path| path =~ /app[\\\/]models[\\\/].*\.rb$/ }
   controllers = changed.select { |path| path =~ /app[\\\/]controllers[\\\/].*\.rb$/ }
-
+  #Turnip features
+  features    = changed.select { |path| path =~ /spec[\\\/]acceptance[\\\/].*\.feature$/ }
+  
   unit_tests       = models.map { |model| "spec/models/#{File.basename(model, '.rb')}_spec.rb" }
   functional_tests = controllers.map { |controller| "spec/controllers/#{File.basename(controller, '.rb')}_spec.rb" }
   routing_tests    = controllers.map { |controller| "spec/routing/#{File.basename(controller, '.rb').gsub("controller", "routing")}_spec.rb" }
+  acceptance_tests = features.map { |feature| "spec/acceptance/#{File.basename(feature)}" }
   # Someone who thinks that view testing is awesome should probably write code for handling view specs.
 
-  (unit_tests + functional_tests).uniq.select { |file| File.exist?(file) }
+  (unit_tests + functional_tests + acceptance_tests).uniq.select { |file| File.exist?(file) }
 end
 
 namespace :spec do
