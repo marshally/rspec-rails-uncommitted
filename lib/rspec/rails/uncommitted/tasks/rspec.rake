@@ -54,7 +54,9 @@ def specs_to_run(changed)
   routing_tests    = controllers.map { |controller| "spec/routing/#{File.basename(controller, '.rb').gsub("controller", "routing")}_spec.rb" }
   # Someone who thinks that view testing is awesome should probably write code for handling view specs.
 
-  (unit_tests + functional_tests).uniq.select { |file| File.exist?(file) }
+  request_tests = changed.select { |path| path =~ /spec[\\\/]requests[\\\/].+_spec\.rb/ }
+
+  (unit_tests + functional_tests + request_tests).uniq.select { |file| File.exist?(file) }
 end
 
 namespace :spec do
